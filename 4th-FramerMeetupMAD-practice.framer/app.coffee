@@ -39,19 +39,15 @@ flow.header = navBar
 signUpButton.onTap ->
 	flow.showNext(homeScreen)
 	navBar.animate
-		y: 0
 		opacity: 1
 		options:
 			time: .75
-			curve: Spring(damping: 0.9)
 			delay: .25
 back.onTap ->
 	navBar.animate
-		y: -67
 		opacity: 0
 		options:
-			time: .75
-			curve: Spring(damping: 0.9)
+			time: .5
 			delay: 0
 	Utils.delay .25, ->
 		flow.showPrevious(loginScreen)
