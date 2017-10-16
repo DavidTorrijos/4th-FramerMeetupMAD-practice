@@ -13,7 +13,6 @@ ToggleSelect.states =
 	animationOptions:
 		time: .75
 		curve: Spring (damping: 0.7)
-
 ToggleBackground.states =
 	disable:
 		scale: 0
@@ -33,9 +32,13 @@ ToggleSelect.onTap (event, layer) ->
 # Set up FlowComponent
 flow = new FlowComponent
 flow.showNext(loginScreen)
-flow.header = navBar
 
-# Switch on click
+# NavBar initial configuration
+flow.header = navBar
+navBar.opacity = 0
+
+
+# Events
 signUpButton.onTap ->
 	flow.showNext(homeScreen)
 	navBar.animate
@@ -52,3 +55,28 @@ back.onTap ->
 	Utils.delay .25, ->
 		flow.showPrevious(loginScreen)
 # ----------------------- #
+
+
+# ----- Main container ----- #
+# Layer initial configuration
+mainContainer = new Layer
+	width: 375
+	height: 667
+	backgroundColor: "rgba(255,255,255,0)"
+mainContainer.parent = homeScreen
+# -------------------------- #
+
+
+# ----- Scroll Component ----- #
+# Scroll initial configuration
+scroll = new ScrollComponent
+	width: 375
+	height: 667
+scroll.scrollHorizontal = false
+scroll.parent = mainContainer
+
+
+# ----- Content ----- #
+# Page title
+PageTitle.parent = scroll.content
+# ------------------- #
