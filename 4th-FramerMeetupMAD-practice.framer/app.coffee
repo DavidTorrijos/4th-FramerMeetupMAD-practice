@@ -73,10 +73,14 @@ scroll = new ScrollComponent
 	width: 375
 	height: 667
 scroll.scrollHorizontal = false
+scroll.contentInset =
+	bottom: 32
 scroll.parent = mainContainer
 
 
 # ----- Content ----- #
 # Page title
 PageTitle.parent = scroll.content
+# Event list
+EventList.parent = scroll.content
 # ------------------- #
