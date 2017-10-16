@@ -9,7 +9,7 @@
   "deviceType" : "apple-iphone-7-black",
   "sharedPrototype" : 0,
   "propertyPanelToggleStates" : {
-
+    "Filters" : false
   },
   "projectId" : "F551911A-8A81-48F7-B6D4-7FB7DA049FA2",
   "deviceOrientation" : 0,
@@ -18,5 +18,5 @@
   "foldedCodeRanges" : [
 
   ],
-  "deviceScale" : "fit"
+  "deviceScale" : 0.5
 }
