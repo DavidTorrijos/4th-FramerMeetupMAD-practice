@@ -31,12 +31,13 @@ ToggleSelect.onTap (event, layer) ->
 # ----- Screen Flow ----- #
 # Set up FlowComponent
 flow = new FlowComponent
+	backgroundColor: "rgba(255,255,255,1)"
 flow.showNext(loginScreen)
 
 # NavBar initial configuration
 flow.header = navBar
 navBar.opacity = 0
-
+currentScreen = 0
 
 # Events
 signUpButton.onTap ->
@@ -46,41 +47,35 @@ signUpButton.onTap ->
 		options:
 			time: .75
 			delay: .25
+	currentScreen++
+Event04.onTap ->
+	flow.showNext(detailScreen)
+	currentScreen++
 back.onTap ->
-	navBar.animate
-		opacity: 0
-		options:
-			time: .5
-			delay: 0
-	Utils.delay .25, ->
-		flow.showPrevious(loginScreen)
+	if currentScreen == 1
+		navBar.animate
+			opacity: 0
+			options:
+				time: .5
+				delay: 0
+		Utils.delay .25, ->
+			flow.showPrevious(loginScreen)
+	else
+		flow.showPrevious(homeScreen)
+	currentScreen--
 # ----------------------- #
 
 
-# ----- Main container ----- #
-# Layer initial configuration
-mainContainer = new Layer
-	width: 375
-	height: 667
-	backgroundColor: "rgba(255,255,255,0)"
-mainContainer.parent = homeScreen
-# -------------------------- #
-
-
 # ----- Scroll Component ----- #
-# Scroll initial configuration
 scroll = new ScrollComponent
-	width: 375
-	height: 667
-scroll.scrollHorizontal = false
-scroll.contentInset =
-	bottom: 32
-scroll.parent = mainContainer
+	size: Screen.size
+	scrollHorizontal: false
+scroll.parent = homeScreen
 
-
-# ----- Content ----- #
-# Page title
+# Content
 PageTitle.parent = scroll.content
-# Event list
+PageTitle.y = 32
+
 EventList.parent = scroll.content
-# ------------------- #
+EventList.y = 129
+# ---------------------------- #
