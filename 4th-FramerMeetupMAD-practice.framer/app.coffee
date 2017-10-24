@@ -79,3 +79,31 @@ PageTitle.y = 32
 EventList.parent = scroll.content
 EventList.y = 129
 # ---------------------------- #
+
+
+# ----- Page Component ----- #
+pageScroller = new PageComponent
+	width: 375
+	height: 250
+	scrollVertical: false
+pageScroller.parent = SliderContainer
+
+# Content
+pic01 = new Layer
+	width: 375
+	height: 250
+	image: "images/pic01.jpg"
+pic01.parent = pageScroller.content
+pic02 = new Layer
+	width: 375
+	height: 250
+	x: 375
+	image: "images/pic02.jpg"
+pic02.parent = pageScroller.content
+pic03 = new Layer
+	width: 375
+	height: 250
+	x: 750
+	image: "images/pic03.jpg"
+pic03.parent = pageScroller.content
+# -------------------------- #
